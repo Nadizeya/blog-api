@@ -15,7 +15,7 @@ app.use(express.json())
 
 app.use((req,res,next) => {
     console.log(req.path, req.method);
-    res.setHeader("Across-Control-Allow-Credentials", "*");
+    res.header("Across-Control-Allow-Credentials", "*");
     next()
 })
 
