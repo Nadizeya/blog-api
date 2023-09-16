@@ -15,11 +15,11 @@ app.use(express.json())
 
 app.use((req,res,next) => {
     console.log(req.path, req.method);
+    res.setHeader("Across-Control-Allow-Credentials", "*");
     next()
 })
 
 app.get('/', (req,res) => {
-    res.setHeader("Across-Control-Allow-Credentials", "true");
     res.send("Api is running")
 })
 
