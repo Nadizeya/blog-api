@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose')
+const cors = require('cors');
 //routes files
 const workoutRoutes = require('./routes/workouts') 
 const userRoutes = require('./routes/user') 
@@ -15,6 +16,11 @@ app.use(express.json())
 app.use((req,res,next) => {
     console.log(req.path, req.method);
     next()
+})
+
+app.get('/', (req,res) => {
+    res.setHeader("Across-Control-Allow-Credentials", "true");
+    res.send("Api is running")
 })
 
 //routes
